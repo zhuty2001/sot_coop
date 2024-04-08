@@ -1,10 +1,10 @@
 # sh feat_extractor.sh
-DATA=/path/to/datasets
+DATA=/public/home/zhuty1/sot_coop/DATA
 OUTPUT='./clip_feat/'
 SEED=1
 
 # oxford_pets oxford_flowers fgvc_aircraft dtd eurosat stanford_cars food101 sun397 caltech101 ucf101 imagenet
-for DATASET in oxford_pets
+for DATASET in caltech101
 do
     for SPLIT in train val test
     do
