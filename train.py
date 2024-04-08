@@ -49,18 +49,22 @@ def reset_cfg(cfg, args):
     if args.output_dir:
         cfg.OUTPUT_DIR = args.output_dir
 
+    #恢复训练的检查点文件路径
     if args.resume:
         cfg.RESUME = args.resume
 
     if args.seed:
         cfg.SEED = args.seed
 
+    #源域列表，用于多域学习或迁移学习，指定源域的数据集。
     if args.source_domains:
         cfg.DATASET.SOURCE_DOMAINS = args.source_domains
 
+    #目标域列表，用于多域学习或迁移学习，指定目标域的数据集。
     if args.target_domains:
         cfg.DATASET.TARGET_DOMAINS = args.target_domains
 
+    #数据预处理和增强的转换操作列表，这些转换会应用于输入数据 --transforms RandomResizedCrop RandomHorizontalFlip ToTensor
     if args.transforms:
         cfg.INPUT.TRANSFORMS = args.transforms
 
@@ -73,7 +77,7 @@ def reset_cfg(cfg, args):
     if args.head:
         cfg.MODEL.HEAD.NAME = args.head
 
-
+#为配置文件增加了一个COOP子节点，存储与COOP相关的参数
 def extend_cfg(cfg):
     """
     Add new config variables.
